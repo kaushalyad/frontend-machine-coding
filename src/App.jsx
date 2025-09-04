@@ -66,80 +66,95 @@ import SelectableGrid from "./components/SelectableGrid.jsx";
 import Tracker from "./components/Tracker.jsx";
 import SubmitInfo from "./components/SubmitInfo.jsx";
 function App() {
-  // const { theme, toggleTheme } = useTheme();
-  // console.log(theme + "theme");
+  const { theme, toggleTheme } = useTheme();
+  console.log(theme + "theme");
 
-  // const [count, setCount] = useState(0);
-  // const [clickedButton, setClickedButton] = useState(0);
-  // const { data, loading } = useFetch(
-  //   "https://api.worldnewsapi.com/search-news?text=earth+quake&language=en&earliest-publish-date=2025-08-01"
-  // );
-  // if (!loading) console.log(data);
-  // const initialStates = {
-  //   val: 0,
-  // };
-  // const reducer = (state, action) => {
-  //   switch (action.type) {
-  //     case "increment":
-  //       return { val: state.val + 1 };
-  //     case "decrement":
-  //       return { val: state.val - 1 };
-  //     default:
-  //       return state;
-  //   }
-  // };
-  // const [state, dispatch] = useReducer(reducer, initialStates);
-  // const increment = () => {
-  //   setCount(count + 1);
-  // };
-  // const decrement = () => {
-  //   setCount(count - 1);
-  // };
-  // const calculateTotalSum = (n) => {
-  //   console.log(`you called me ${clickedButton}`);
-  //   return (n * (n + 1)) / 2;
-  // };
-  // const sum = useCallback(() => calculateTotalSum(count), [count]);
-  // const [counter, inc, dec] = useCounter();
-  // console.log(sum());
-  // const myRef = useRef(null);
-  // const inputRef = useRef(null);
-  // const audioRef = useRef(null);
-  // const countRef = useRef(null);
-  // const divData = () => {
-  //   console.log(myRef.current);
-  //   console.log(inputRef.current.focus());
-  // };
-  // const playAudio = () => {
-  //   audioRef.current.play();
-  // };
-  // const stopAudio = () => {
-  //   audioRef.current.pause();
-  // };
-  // console.log(
-  //   "inside the parents",
-  //   countRef?.current?.innerText || "not found"
-  // );
-  // useEffect(() => {
-  //   console.log("use effect hook called");
-  // });
-  // console.log("app rendered");
-  // useLayoutEffect(() => {
-  //   console.log("use layout effect hook called");
-  // });
-  // const [total, setTotal] = useState([]);
-  // const handleToastify = () => {
-  //   const temp = [...total];
-  //   temp.push(<Toastify stat={true} />);
-  //   setTotal(temp);
-  // }
-  // console.log(total);
+  const [count, setCount] = useState(0);
+  const [clickedButton, setClickedButton] = useState(0);
+  const { data, loading } = useFetch(
+    "https://api.worldnewsapi.com/search-news?text=earth+quake&language=en&earliest-publish-date=2025-08-01"
+  );
+  if (!loading) console.log(data);
+  const initialStates = {
+    val: 0,
+  };
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "increment":
+        return { val: state.val + 1 };
+      case "decrement":
+        return { val: state.val - 1 };
+      default:
+        return state;
+    }
+  };
+  const [state, dispatch] = useReducer(reducer, initialStates);
+  const increment = () => {
+    setCount(count + 1);
+  };
+  const decrement = () => {
+    setCount(count - 1);
+  };
+  const calculateTotalSum = (n) => {
+    console.log(`you called me ${clickedButton}`);
+    return (n * (n + 1)) / 2;
+  };
+  const sum = useCallback(() => calculateTotalSum(count), [count]);
+  const [counter, inc, dec] = useCounter();
+  console.log(sum());
+  const myRef = useRef(null);
+  const inputRef = useRef(null);
+  const audioRef = useRef(null);
+  const countRef = useRef(null);
+  const divData = () => {
+    console.log(myRef.current);
+    console.log(inputRef.current.focus());
+  };
+  const playAudio = () => {
+    audioRef.current.play();
+  };
+  const stopAudio = () => {
+    audioRef.current.pause();
+  };
+  console.log(
+    "inside the parents",
+    countRef?.current?.innerText || "not found"
+  );
+  useEffect(() => {
+    console.log("use effect hook called");
+  });
+  console.log("app rendered");
+  useLayoutEffect(() => {
+    console.log("use layout effect hook called");
+  });
+  const [total, setTotal] = useState([]);
+  const handleToastify = () => {
+    const temp = [...total];
+    temp.push(<Toastify stat={true} />);
+    setTotal(temp);
+  }
+  console.log(total);
   return (
-    <div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>
-      {/* <InfiniteScroll /> */}
-      {/* <StarRating /> */}
-      {/* <AutoComplete /> */}
-      {/* <DarkMode /> */}
+    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", gap: "50px" }}>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>1.</div>
+        <div>
+          <StarRating />
+        </div>
+      </div>
+
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>2.</div>
+        <div>
+          <AutoComplete />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>3.</div>
+        <div>
+          <DarkMode />
+        </div>
+      </div>
       {/* <button onClick={() => setCount((prev) => prev + 1)}>
         Increment Count
       </button>
@@ -205,53 +220,103 @@ function App() {
       <p>{counter}</p>
       <button onClick={inc}>inc</button>
       <button onClick={dec}>dec</button> */}
-      {/* <Form /> */}
-      {/* <Size /> */}
-      {/* <ViewInfiniteScroll /> */}
-      {/* <Debounce /> */}
-      {/* <Throttle /> */}
-      {/* <Css /> */}
-      {/* <Accordian /> */}
-      {/* <Modal /> */}
-      {/* <OneSecond /> */}
-      {/* <GridRemoval /> */}
-      {/* <Carousel /> */}
-      {/* <Navbar /> */}
-      {/* <Pagination /> */}
-      {/* <Input /> */}
-      {/* <Weather /> */}
-      {/* <ProgressBar /> */}
-      {/* <PopUp /> */}
-      {/* <Like /> */}
-      {/* <ToDo /> */}
-      {/* <TicTacToe /> */}
-      {/* <StopWatch /> */}
-      {/* <NestedComponent /> */}
-      {/* <TestUseTimeOut /> */}
-      {/* <NestedCheckBox /> */}
-      {/* <Render /> */}
-      {/* <DigitalWatch /> */}
-      {/* <CustomSorting /> */}
-      {/* <InlineBlock /> */}
-      {/* <ProductList /> */}
-      {/* <PollWidget /> */}
-      {/* <NestedFolder /> */}
-      {/* <StyledComponent /> */}
-      {/* <TrafficLight /> */}
-      {/* <Position /> */}
-      {/* <PaginationTable rows={6} /> */}
-      {/* {
-        total.map((item, idx) => {
-          return (item);
-        })
-      }
-        
-      <div onClick={handleToastify} style={{ backgroundColor: "green", color: "white", width: "150px", textAlign: "center", borderRadius: "5px", cursor: "pointer" }}>button Toastify</div> */}
-      {/* <CalenderGenerator /> */}
-      {/* <Toastify /> */}
-      {/* <MemoryGame /> */}
-      {/* <SelectableGrid /> */}
-      <Tracker />
+      <Form />
+      <Size />
+      <ViewInfiniteScroll />
+      <Debounce />
+      <Throttle />
+      <Css />
+      <Accordian />
+      <Modal />
+      <OneSecond />
+      <GridRemoval />
+      <Carousel />
+      <Navbar />
+      <Pagination />
+      <Input />
+      <Weather />
+      <ProgressBar />
+      <PopUp />
+      <Like />
+      <ToDo />
+      <TicTacToe />
+      <StopWatch />
+      <NestedComponent />
+      <TestUseTimeOut />
+      <NestedCheckBox />
+      <Render />
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>24.</div>
+        <div>
+          <DigitalWatch />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>25.</div>
+        <div>
+          <CustomSorting />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>26.</div>
+        <div>
+          <ProductList />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>27.</div>
+        <div>
+          <PollWidget />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>28.</div>
+        <div>
+          <NestedFolder />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>29.</div>
+        <div>
+          <TrafficLight />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>30.</div>
+        <div>
+          <PaginationTable rows={6} />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>31.</div>
+        <div>
+          <CalenderGenerator />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>32.</div>
+        <div>
+          <Toastify />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>33.</div>
+        <div>
+          <MemoryGame />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>34.</div>
+        <div>
+          <SelectableGrid />
+        </div>
+      </div>
+      <div style={{ border: "5px solid green", width: "90%", padding: "50px", display: "flex", justifyContent: "flex-start", alignItems: "center", gap: "20px" }}>
+        <div style={{ fontSize: "40px" }}>35.</div>
+        <div>
+          <Tracker />
+        </div>
+      </div>
     </div>
   );
 }

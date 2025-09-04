@@ -75,7 +75,7 @@ const PaginationTable = ({ rows = 3 }) => {
         setSearchedData(data);
     }
     return (
-        <div style={{ width: "98vw", height: "95vh", backgroundColor: "blue", display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <div style={{ width: "98vw", height: "95vh", display: "flex", justifyContent: "center", alignItems: "center" }}>
             <div style={{ width: "70%", height: "85%", backgroundColor: "#edacac", borderRadius: "15px", display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center", padding: "20px" }}>
                 <div style={{ width: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "10px" }}>
                     <span style={{ fontSize: "40px", fontWeight: "bold" }}>How to Build a Dynamic Table</span>

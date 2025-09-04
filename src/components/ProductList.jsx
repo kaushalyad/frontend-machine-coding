@@ -37,12 +37,12 @@ function ProductList() {
     }, [])
 
     const addHandler = (item) => {
-        const alerData = alert(`added ${item.title} to the cart`);
-        const promptData = prompt(`added ${item.title} to the cart`);
-        const confirmData = confirm("are are sure you want to buy the product");
-        console.log("alertdata", alerData);
-        console.log("promptData", promptData);
-        console.log("confirmData", confirmData);
+        // const alerData = alert(`added ${item.title} to the cart`);
+        // const promptData = prompt(`added ${item.title} to the cart`);
+        // const confirmData = confirm("are are sure you want to buy the product");
+        // console.log("alertdata", alerData);
+        // console.log("promptData", promptData);
+        // console.log("confirmData", confirmData);
         toast.success(`added ${item.title} to the cart`)
         setCartData((prev) => ([...prev, item]))
         localStorage.clear("items");

@@ -1,4 +1,5 @@
 import React from "react";
+import { useCallback } from "react";
 import { useState, useEffect } from "react";
 
 const AutoComplete = () => {
@@ -15,6 +16,15 @@ const AutoComplete = () => {
   ];
 
   const [suggestions, setSuggestions] = useState([]);
+  const debounce = (fn, delay) => {
+    let id;
+    return function (...fn) {
+      clearTimeout(id);
+      setTimeout(() => {
+        fn();
+      }, delay);
+    }
+  }
   function findSuggetions(data, str) {
     const updatedData = [];
     for (let i = 0; i < data.length; i++) {
@@ -26,13 +36,19 @@ const AutoComplete = () => {
   }
   useEffect(() => {
     setSuggestions(findSuggetions(suggestionsData, value));
-  }, [value,suggestions]);
+  }, []);
+  const search = (e) => {
+    findSuggetions(suggestionsData, e.target.value)
+  }
+  const searchHandler = useCallback(debounce(search, 3000), [value]);
   return (
     <>
       <div
         style={{
           display: "flex",
           justifyContent: "center",
+          alignItems: "center",
+          gap: "10px"
         }}
       >
         <input
@@ -42,14 +58,13 @@ const AutoComplete = () => {
             fontSize: "30px",
             paddingLeft: "10px",
           }}
-          value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={searchHandler}
         />
         {value && (
           <span
             style={{
               color: "white",
-              fontSize: "12px",
+              fontSize: "20px",
               cursor: "pointer",
               textAlign: "center",
               marginRight: "50px",
@@ -67,7 +82,7 @@ const AutoComplete = () => {
           justifyContent: "center",
         }}
       >
-        <div>
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "5px" }}>
           {suggestions &&
             suggestions.map((data, index) => (
               <div

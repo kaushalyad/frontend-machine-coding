@@ -11,7 +11,7 @@ const CustomSorting = () => {
         age: 19,
         solved: 45,
     }, {
-        name: "Shubhi Dixit",
+        name: "Gopal Yadav",
         age: 28,
         solved: 5,
     }, {
@@ -46,7 +46,7 @@ const CustomSorting = () => {
     }
     console.log(ownData);
     return (
-        <div style={{ backgroundColor: "red", width: "100vw", height: "100vh", display: "flex", justifyContent: "center" }}>
+        <div style={{ width: "100vw", height: "100vh", display: "flex", justifyContent: "center" }}>
             <div style={{ width: "50vw", height: "100%", backgroundColor: "white", display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", backgroundColor: "green", height: "50px", width: "100%", color: "white", alignItems: "center", fontSize: "18px", padding: "10px" }}>
                     <div onClick={sortOnName} style={{ cursor: "pointer", }}>Name</div>
